@@ -1,24 +1,24 @@
 import { Injectable, Scope } from "@nestjs/common";
-import { PinoLogger } from "nestjs-pino";
+// import { PinoLogger } from "nestjs-pino";
 import { ConfigService } from "@nestjs/config";
 
 @Injectable({ scope: Scope.TRANSIENT })
 export class PpLoggerService {
-  private readonly logger: PinoLogger;
+  // private readonly logger: PinoLogger;
 
   constructor(private configService: ConfigService) {
     const pinoConfig = this.configService.get("log_levels");
-    this.logger = new PinoLogger(pinoConfig);
+    // this.logger = new PinoLogger(pinoConfig);
   }
   setContext(context: string) {
-    this.logger.setContext(context);
+    // this.logger.setContext(context);
   }
   /**
    * Write a 'log' level log.
    */
   log(...messages: any[]) {
     const message = messages?.length == 1 ? messages[0] : messages;
-    this.logger.info(message);
+    // this.logger.info(message);
   }
 
   /**
@@ -26,7 +26,7 @@ export class PpLoggerService {
    */
   error(...messages: any[]) {
     const message = messages?.length == 1 ? messages[0] : messages;    
-    this.logger.error(message);
+    // this.logger.error(message);
   }
 
   /**
@@ -34,7 +34,7 @@ export class PpLoggerService {
    */
   warn(...messages: any[]) {
     const message = messages?.length == 1 ? messages[0] : messages;
-    this.logger.warn(message);
+    // this.logger.warn(message);
   }
 
   /**
@@ -42,7 +42,7 @@ export class PpLoggerService {
    */
   debug(...messages: any[]) {
     const message = messages?.length == 1 ? messages[0] : messages;
-    this.logger.debug(message);
+    // this.logger.debug(message);
   }
 
   /**
@@ -50,7 +50,7 @@ export class PpLoggerService {
    */
   verbose(...messages: any[]) {
     const message = messages?.length == 1 ? messages[0] : messages;
-    this.logger.trace(message); // For PinoLogger, use 'trace' instead of 'verbose'
+    // this.logger.trace(message); // For PinoLogger, use 'trace' instead of 'verbose'
   }
   // /**
   //  * Write a 'log' level log.
