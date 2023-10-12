@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { KafkaModule } from './common/kafka/kafka.module';
 import { CoreModule } from './core/core.module';
 import { HttpModule } from '@nestjs/axios';
 import { PpLoggerService } from './boostrap/logger.service';
@@ -20,7 +19,6 @@ import { HackathonImagesModule } from './modules/hackathon_images/hackathon_imag
       maxRedirects: 5,
     }),
     CoreModule,
-    KafkaModule,
     HackathonQuestionsModule,
     HackathonImagesModule
   ],
