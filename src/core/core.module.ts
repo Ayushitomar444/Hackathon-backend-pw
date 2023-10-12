@@ -24,16 +24,9 @@ import configuration from '../config/env.config';
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useClass: MongoDBConfigService,
-    }),
-    ClientsModule.registerAsync([
-      {
-        name: service_name.kafka.name,
-        imports: [ConfigModule],
-        useClass: KafkaConfigService,
-      },
-    ]),
+    })
   ],
   providers: [PpLoggerService],
-  exports: [ConfigModule, MongooseModule, HttpModule, ClientsModule],
+  exports: [ConfigModule, MongooseModule, HttpModule],
 })
 export class CoreModule {}
