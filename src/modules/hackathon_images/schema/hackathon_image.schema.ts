@@ -1,0 +1,24 @@
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { SchemaTypes, Types } from "mongoose";
+import { BaseEntity } from "../../../common/base-repository/base-entity";
+import { CouponStudentMappingStatus, CouponKind } from "../../../lookup.enums";
+import * as _ from 'lodash'
+
+@Schema({ collection: "hackathon_questions", timestamps: true })
+export class HackathonImages extends BaseEntity {
+
+    _id: Types.ObjectId;
+    
+    @Prop({
+        type: [String],
+    })
+    imageUrls: string[];
+
+    constructor(data?: any) {
+        super();
+        if(data) Object.assign(this, data);
+        return this;
+    }
+}
+
+export const HackathonImagesSchema = SchemaFactory.createForClass(HackathonImages);
