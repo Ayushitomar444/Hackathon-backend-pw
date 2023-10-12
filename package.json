@@ -50,7 +50,8 @@
     "unzipper": "^0.10.14",
     "xlsx": "^0.11.18",
     "yarn": "^1.22.19",
-    "nestjs-pino": "^3.3.0"
+    "nestjs-pino": "^3.3.0",
+    "@vercel/node": "3.0.7"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
